@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash  Jenkins Installation 
 
 #-f Fail silently (no output at all) on server errors.
 #s--silent Silent or quiet mode. Don't show progress meter or error messages.
@@ -26,3 +26,25 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt-get update -y 
 sudo apt-get install jenkins -y
+
+
+#Docker Installaton Commands
+##Install in Amazon Ubuntu
+#!/bin/bash
+sudo apt update -y
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" -y
+
+sudo apt update -y
+
+apt-cache policy docker-ce -y
+
+sudo apt install docker-ce -y
+
+#sudo systemctl status docker
+
+sudo chmod 777 /var/run/docker.sock
